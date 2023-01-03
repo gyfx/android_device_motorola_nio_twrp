@@ -11,7 +11,7 @@ Setup repo tool from here https://source.android.com/setup/develop#installing-re
 Sync aosp_r29 manifest:
 
 ```
-repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
+repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
 
 ```
 
@@ -24,10 +24,10 @@ and then paste the following
 <remote name="github"
 	fetch="https://github.com/" />
 
-<project path="device/oneplus/kebab"
-	name="theincognito/android_device_oneplus_kebab"
+<project path="device/motorola/nio"
+	name="gyfx/android_device_motorola_nio_twrp"
 	remote="github"
-	revision="android-11" />
+	revision="android-12.1" />
 </manifest>
 ```
 You might need to pick few patches from gerrit.twrp.me to get some stuff working.
@@ -41,7 +41,7 @@ repo sync -j$(nproc --all)
 To build, execute these commands in order
 
 ```
-. build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; export LC_ALL=C; lunch aosp_kebab-eng; make -j$(nproc --all) adbd recoveryimage
+. build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; export LC_ALL=C; lunch aosp_nio-eng; make -j$(nproc --all) adbd recoveryimage
 ```
 
 To test it:
